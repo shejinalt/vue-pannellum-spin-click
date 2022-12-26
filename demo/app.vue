@@ -19,7 +19,10 @@
     >
       Slot content
     </v-pannellum>
-    <div class="controls">
+
+
+
+    <div class="controls" style="display: none;">
       <label>
         <span>Type:</span>
         <button @click="url = equirectangularUrl">equirect</button>
@@ -80,6 +83,7 @@ export default {
       isOrientationOn: false,
       hotSpots: [
         {
+          id: 1,
           pitch: 14.1,
           yaw: 1.5,
           type: 'info',
@@ -87,64 +91,24 @@ export default {
           URL: 'https://google.com/',
         },
         {
-          pitch: 0,
+          id: 2,
+          pitch: 50,
           yaw: -90,
           type: 'info',
           text: 'I am <b>bold</b> text.',
         },
         {
+          id: 3,
           pitch: -0.9,
           yaw: 144.4,
           type: 'info',
           text: 'Info 2',
         },
       ],
-      srcTour: {
-        default: {
-          firstScene: 'cube',
-          author: 'Foo Bar',
-          sceneFadeDuration: 1000,
-        },
-        scenes: {
-          cube: {
-            title: 'Cube',
-            hfov: 110,
-            pitch: -3,
-            yaw: 117,
-            type: 'equirectangular',
-            panorama: equirectangularUrlCube,
-            hotSpots: [
-              {
-                pitch: -2.1,
-                yaw: -105,
-                type: 'scene',
-                text: 'Grid',
-                sceneId: 'grid',
-              },
-            ],
-          },
-          grid: {
-            title: 'Grid',
-            hfov: 110,
-            yaw: 5,
-            type: 'equirectangular',
-            panorama: equirectangularUrlGrid,
-            hotSpots: [
-              {
-                pitch: -0.6,
-                yaw: -77.1,
-                type: 'scene',
-                text: 'Cube',
-                sceneId: 'cube',
-                targetYaw: -23,
-                targetPitch: 2,
-              },
-            ],
-          },
-        },
-      },
+
     }
   },
+
 }
 </script>
 
@@ -168,5 +132,8 @@ body {
   border: solid 1px silver;
   background-color: hsla(0, 0%, 100%, 0.3);
   z-index: 10;
+}
+.hotList>.item{
+  cursor: pointer;
 }
 </style>
